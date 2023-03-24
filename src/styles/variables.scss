@@ -1,0 +1,29 @@
+$light-main-bg: #7ca4c4;
+$light-main-text: #464e54;
+$light-main-border: #d9d9d9;
+$dark-main-bg: #2f3542;
+$dark-main-text: #dfe4ea;
+$dark-main-border: #57606f;
+
+$warning: #f0ad4e;
+$danger: #d9534f;
+$clear-sky: #3baee8;
+
+.skeleton {
+  background: #e4e6e8
+    linear-gradient(
+      100deg,
+      rgba(255, 255, 255, 0) 40%,
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0) 60%
+    );
+  background-size: 200% 100%;
+  background-position-x: 180%;
+  animation: 0.9s loading ease infinite;
+}
+
+@keyframes loading {
+  to {
+    background-position-x: -20%;
+  }
+}
