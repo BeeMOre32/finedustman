@@ -1,4 +1,4 @@
-$light-main-bg: #7ca4c4;
+$light-main-bg: #3893ce;
 $light-main-text: #464e54;
 $light-main-border: #d9d9d9;
 $dark-main-bg: #2f3542;
@@ -8,6 +8,21 @@ $dark-main-border: #57606f;
 $warning: #f0ad4e;
 $danger: #d9534f;
 $clear-sky: #3baee8;
+
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff')
+    format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Pretendard-Regular', sans-serif;
+}
 
 .skeleton {
   background: #e4e6e8
