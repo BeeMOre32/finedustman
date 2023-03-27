@@ -73,6 +73,11 @@
   .very-bad {
     background-color: $danger;
   }
+
+  &.no-data {
+    background-color: $light-main-text;
+    color: $light-important;
+  }
 }
 
 .modal__wrapper {

@@ -15,3 +15,11 @@ export const fetchAllFineDust = async () => {
     })
     .then((res) => res.data.response.body);
 };
+
+export const fetchFineDustByLocation = async (location: string) => {
+  return axios
+    .get('/api/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty', {
+      params: { ...params, sidoName: location },
+    })
+    .then((res) => res.data.response.body);
+};

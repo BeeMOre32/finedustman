@@ -2,8 +2,7 @@ import React from 'react';
 import { FineDustCardInterface } from '../../interface/componentInterface';
 import classNames from 'classnames';
 import { motion, Variants } from 'framer-motion';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../store/store';
+import { useDispatch } from 'react-redux';
 import { openModal } from '../../store/slice/modalReducer';
 
 const variants: Variants = {
@@ -26,9 +25,8 @@ const variants: Variants = {
   },
 };
 function FineDustCard({ data }: FineDustCardInterface) {
-  const modal = useSelector((state: RootState) => state.modal);
   const dispatch = useDispatch();
-  console.log(modal);
+
   return (
     <motion.div
       initial="initial"
@@ -43,7 +41,8 @@ function FineDustCard({ data }: FineDustCardInterface) {
         data.khaiGrade === '2' && 'normal',
         data.khaiGrade === '3' && 'not-good',
         data.khaiGrade === '4' && 'bad',
-        data.khaiGrade === '5' && 'very-bad'
+        data.khaiGrade === '5' && 'very-bad',
+        data.khaiGrade === null && 'no-data'
       )}
     >
       <h2>{data.stationName}</h2>

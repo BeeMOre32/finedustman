@@ -10,13 +10,14 @@ import Main from './components/Layout/Main';
 import Home from './pages/Home';
 import { Provider } from 'react-redux';
 import store from './store/store';
+import MyLocation from './pages/MyLocation';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Main />}>
       <Route path="/" element={<Home />} />
       <Route path="*" element={<p>Error</p>} />
-      <Route path="/location" element={<p>location</p>} />
+      <Route path="/location" element={<MyLocation />} />
       <Route path="/favorite" element={<p>favorite</p>} />
     </Route>
   )

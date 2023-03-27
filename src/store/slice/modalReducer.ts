@@ -18,13 +18,13 @@ export const modalReducer = createSlice({
   initialState,
   reducers: {
     openModal: (state: ModalState, action: PayloadAction<ModalPayload>) => {
-      state = { isOpen: true, data: action.payload.data };
+      return (state = { isOpen: true, data: action.payload.data });
     },
     closeModal: (state: ModalState) => {
-      state = {
+      return (state = {
         isOpen: false,
         data: null,
-      };
+      });
     },
   },
 });

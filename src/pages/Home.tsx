@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/home.scss';
-import { useQuery } from 'react-query';
+import { useQuery } from '@tanstack/react-query';
 import { fetchAllFineDust } from '../api/api';
 import { FetchFineDust, FinDustDetail } from '../interface/apiInterface';
 import useGetGradeToText from '../hooks/useGetGradeToText';
