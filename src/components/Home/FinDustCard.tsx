@@ -2,6 +2,9 @@ import React from 'react';
 import { FineDustCardInterface } from '../../interface/componentInterface';
 import classNames from 'classnames';
 import { motion, Variants } from 'framer-motion';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../store/store';
+import { openModal } from '../../store/slice/modalReducer';
 
 const variants: Variants = {
   initial: { opacity: 0, y: 50 },
@@ -23,11 +26,16 @@ const variants: Variants = {
   },
 };
 function FineDustCard({ data }: FineDustCardInterface) {
+  const modal = useSelector((state: RootState) => state.modal);
+  const dispatch = useDispatch();
+  console.log(modal);
   return (
     <motion.div
       initial="initial"
       animate="animate"
       whileHover="hover"
+      layoutId={data.stationName}
+      onClick={() => dispatch(openModal({ data: data }))}
       variants={variants}
       className={classNames(
         'dust__card',
@@ -43,6 +51,9 @@ function FineDustCard({ data }: FineDustCardInterface) {
         <div className="item">
           <h3>미세먼지</h3>
           <p>{data.pm10Value}</p>
+        </div>
+        <div className="item">
+          <div className="line"></div>
         </div>
         <div className="item">
           <h3>오존</h3>

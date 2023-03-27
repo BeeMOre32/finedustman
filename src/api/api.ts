@@ -8,7 +8,7 @@ const params = {
   sidoName: '서울',
 };
 
-export const fetchData = async () => {
+export const fetchAllFineDust = async () => {
   return axios
     .get('/api/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty', {
       params,
