@@ -11,18 +11,24 @@ const params = {
 
 export const fetchAllFineDust = async () => {
   return axios
-    .get('/api/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty', {
-      params,
-    })
+    .get(
+      'https://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty',
+      {
+        params,
+      }
+    )
     .then((res) => res.data.response.body);
 };
 
 export const fetchFineDustByLocation = async (location: string) => {
   if (location === '') return { items: [] };
   return axios
-    .get('/api/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty', {
-      params: { ...params, sidoName: location, numOfRows: 10 },
-    })
+    .get(
+      'https://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty',
+      {
+        params: { ...params, sidoName: location, numOfRows: 10 },
+      }
+    )
     .then((res) => res.data.response.body);
 };
 
@@ -30,8 +36,11 @@ export const fetchFineDustByLocationForFavorite = async (
   location: string
 ): Promise<FetchFineDust> => {
   return axios
-    .get('/api/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty', {
-      params: { ...params, sidoName: location, numOfRows: 100 },
-    })
+    .get(
+      'https://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty',
+      {
+        params: { ...params, sidoName: location, numOfRows: 100 },
+      }
+    )
     .then((res) => res.data.response.body);
 };
