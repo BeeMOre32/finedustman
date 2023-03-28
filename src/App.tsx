@@ -9,8 +9,10 @@ import {
 import Main from './components/Layout/Main';
 import Home from './pages/Home';
 import { Provider } from 'react-redux';
-import store from './store/store';
+import { persistor, store } from './store/store';
 import MyLocation from './pages/MyLocation';
+import { PersistGate } from 'redux-persist/integration/react';
+import Favorite from './pages/Favorite';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -18,7 +20,7 @@ const router = createBrowserRouter(
       <Route path="/" element={<Home />} />
       <Route path="*" element={<p>Error</p>} />
       <Route path="/location" element={<MyLocation />} />
-      <Route path="/favorite" element={<p>favorite</p>} />
+      <Route path="/favorite" element={<Favorite />} />
     </Route>
   )
 );
@@ -26,9 +28,11 @@ const router = createBrowserRouter(
 function App() {
   return (
     <Provider store={store}>
-      <div className="App">
-        <RouterProvider router={router}></RouterProvider>
-      </div>
+      <PersistGate persistor={persistor}>
+        <div className="App">
+          <RouterProvider router={router}></RouterProvider>
+        </div>
+      </PersistGate>
     </Provider>
   );
 }

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { FetchFineDust } from '../interface/apiInterface';
 
 const params = {
   serviceKey: import.meta.env.VITE_API_KEY,
@@ -17,9 +18,20 @@ export const fetchAllFineDust = async () => {
 };
 
 export const fetchFineDustByLocation = async (location: string) => {
+  if (location === '') return { items: [] };
   return axios
     .get('/api/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty', {
-      params: { ...params, sidoName: location },
+      params: { ...params, sidoName: location, numOfRows: 10 },
+    })
+    .then((res) => res.data.response.body);
+};
+
+export const fetchFineDustByLocationForFavorite = async (
+  location: string
+): Promise<FetchFineDust> => {
+  return axios
+    .get('/api/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty', {
+      params: { ...params, sidoName: location, numOfRows: 100 },
     })
     .then((res) => res.data.response.body);
 };

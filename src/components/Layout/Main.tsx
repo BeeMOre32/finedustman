@@ -5,16 +5,19 @@ import { Outlet } from 'react-router-dom';
 import DustCardModal from '../Home/DustCardModal';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
+import { AnimatePresence } from 'framer-motion';
 
 function Main() {
   const modal = useSelector((state: RootState) => state.modal);
-  console.log(modal);
+
   return (
     <main>
       <Header />
       <Outlet />
       <Footer />
-      {modal.isOpen ? <DustCardModal /> : null}
+      <AnimatePresence>
+        {modal.isOpen ? <DustCardModal /> : null}
+      </AnimatePresence>
     </main>
   );
 }

@@ -7,7 +7,7 @@ interface SaveLocalState {
 
 type saveLocalPayload = SaveLocalState;
 
-type SaveLocalStates = SaveLocalState[];
+export type SaveLocalStates = SaveLocalState[];
 
 const initialState: SaveLocalStates = [
   {
@@ -26,9 +26,12 @@ export const saveLocalReducer = createSlice({
     ) => {
       return (state = [...state, action.payload]);
     },
+    deleteLocal: (state: SaveLocalStates, action: PayloadAction<number>) => {
+      return (state = state.filter((_, index) => index !== action.payload));
+    },
   },
 });
 
-export const { saveLocal } = saveLocalReducer.actions;
+export const { saveLocal, deleteLocal } = saveLocalReducer.actions;
 
 export default saveLocalReducer.reducer;
