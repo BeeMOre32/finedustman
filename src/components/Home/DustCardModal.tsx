@@ -33,7 +33,7 @@ export default function DustCardModal() {
   const handleSaveLocal = () => {
     dispatch(
       saveLocal({
-        cityName: data.sidoName,
+        cityName: data.stationName,
         sidoName: data.sidoName,
       })
     );
