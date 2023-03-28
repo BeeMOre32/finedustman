@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { closeModal } from '../../store/slice/modalReducer';
 import { RootState } from '../../store/store';
 import { deleteLocal, saveLocal } from '../../store/slice/saveLocalReducer';
+import times from '../../asset/times.svg';
+import favorite from '../../asset/favorite.svg';
 
 export default function DustCardModal() {
   const dispatch = useDispatch();
@@ -53,11 +55,11 @@ export default function DustCardModal() {
 
           <div className="icon__wrapper">
             {isInLocal ? (
-              <span onClick={() => handleFilterLocal()}>⭐</span>
+              <img onClick={() => handleFilterLocal()} src={favorite} alt="" />
             ) : (
-              <span onClick={handleSaveLocal}>⭐</span>
+              <img onClick={handleSaveLocal} src={favorite} alt="" />
             )}
-            <span onClick={() => dispatch(closeModal())}>❌</span>
+            <img onClick={() => dispatch(closeModal())} src={times} alt="" />
           </div>
         </div>
         <div className="modal__body">
