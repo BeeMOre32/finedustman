@@ -18,7 +18,6 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Main />}>
       <Route path="/" element={<Home />} />
-      <Route path="*" element={<p>Error</p>} />
       <Route path="/location" element={<MyLocation />} />
       <Route path="/favorite" element={<Favorite />} />
     </Route>
