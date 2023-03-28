@@ -28,9 +28,7 @@ function App() {
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor}>
-        <div className="App">
-          <RouterProvider router={router}></RouterProvider>
-        </div>
+        <RouterProvider router={router}></RouterProvider>
       </PersistGate>
     </Provider>
   );

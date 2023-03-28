@@ -11,10 +11,12 @@ import {
   REGISTER,
   REHYDRATE,
 } from 'redux-persist/es/constants';
+import darkModeReducer from './slice/darkModeReducer';
 
 const rootReducer = combineReducers({
   modal: modalReducer,
   saveLocal: saveLocalReducer,
+  darkMode: darkModeReducer,
 });
 
 const persistConfig = {
